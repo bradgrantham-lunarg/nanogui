@@ -446,7 +446,10 @@ public:
     /// Specify the anchor data structure for a given widget
     void set_anchor(const Widget *widget, const Anchor &anchor) { m_anchor[widget] = anchor; }
 
-    /// Retrieve the anchor data structure for a given widget
+	/// Delete the anchor data structure for a given widget
+	void remove_anchor(const Widget *widget) { m_anchor.erase(widget); }
+
+	/// Retrieve the anchor data structure for a given widget
     Anchor anchor(const Widget *widget) const {
         auto it = m_anchor.find(widget);
         if (it == m_anchor.end())
